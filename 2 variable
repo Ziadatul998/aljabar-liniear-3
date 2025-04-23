@@ -1,0 +1,42 @@
+import numpy as np
+
+A = np.array([[2, 3],
+              [1, -1]])
+
+B = np.array([7, 1])
+
+
+a11 = A[0][0]  
+a12 = A[0][1]  
+a21 = A[1][0]  
+a22 = A[1][1]  
+
+b1 = B[0]      
+b2 = B[1]      
+
+a21 = a21 * 2  
+a22 = a22 * 2  
+b2 = b2 * 2    
+
+y = (b1 - b2) / (a12 - a22)
+
+x = y + 1
+
+print("Hasil:")
+print("x =", x)
+print("y =", y)
+
+import sympy as sp
+
+x, y = sp.symbols('x y')
+
+equations = [
+    2*x + 3*y - 7,  
+    x - y - 1       
+]
+
+solution = sp.solve(equations, (x, y))
+
+print("Hasil:")
+print("x =", solution[x])
+print("y =", solution[y])
